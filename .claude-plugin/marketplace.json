@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "youtube-agent-de",
+  "description": "YouTube-Agent für Claude, deutsche Fassung",
+  "owner": {
+    "name": "Faceless King"
+  },
+  "plugins": [
+    {
+      "name": "youtube-agent-de",
+      "description": "Elf Claude-Skills für deinen YouTube-Kanal, auf Deutsch: Skripte nach 21 Hook-Formeln mit Hook-Bewertung, Titel- und Thumbnail-Check als Paar, Schnittliste aus dem Transkript, Retention-Auswertung, Shorts, Kapitel, Suche, Kommentare, Wochenplan, Kanal-Audit und ein Ausreißer-Finder für deine Nische. Deutsche Fassung von youtube-agent-skill (Jake Schincariol, MIT).",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/DEIN-NAME/youtube-agent-de"
+    }
+  ]
+}

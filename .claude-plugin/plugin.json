@@ -1,0 +1,22 @@
+{
+  "name": "youtube-agent-de",
+  "description": "Elf Claude-Skills für deinen YouTube-Kanal, auf Deutsch: Skripte nach 21 Hook-Formeln mit Hook-Bewertung, Titel- und Thumbnail-Check als Paar, Schnittliste aus dem Transkript, Retention-Auswertung, Shorts, Kapitel, Suche, Kommentare, Wochenplan, Kanal-Audit und ein Ausreißer-Finder für deine Nische. Deutsche Fassung von youtube-agent-skill (Jake Schincariol, MIT).",
+  "version": "1.0.0-de",
+  "author": {
+    "name": "Faceless King (deutsche Fassung) / Jake Schincariol (Original)"
+  },
+  "homepage": "https://github.com/DEIN-NAME/youtube-agent-de",
+  "repository": "https://github.com/DEIN-NAME/youtube-agent-de",
+  "license": "MIT",
+  "keywords": [
+    "youtube",
+    "shorts",
+    "retention",
+    "thumbnails",
+    "titles",
+    "content",
+    "video",
+    "seo",
+    "deutsch"
+  ]
+}

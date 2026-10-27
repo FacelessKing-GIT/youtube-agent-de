@@ -1,0 +1,181 @@
+{
+ "version": "1.0-de",
+ "note": "21 Hook-Formeln für YouTube, deutsche Fassung. Ein YouTube-Hook sind die ersten 15 Sekunden und er hat drei Aufgaben: das Versprechen des Titels bestätigen, eine Frage öffnen, die der Zuschauer nicht selbst schließen kann, und beweisen, dass die Auflösung existiert. Ein Hook, der nur das Dritte tut, ist eine Zusammenfassung und verliert Zuschauer. Jede Formel enthält die Form, ein Beispiel, wann sie scheitert, und die Muster, mit denen hookscore.py gesprochenen Text zuordnet. Die Beispiele sind Muster - Zahlen darin vor Gebrauch durch echte, belegbare ersetzen.",
+ "rules": [
+  "Bestätige den Titel im ersten Satz. Ein Hook, der seinen eigenen Titel ignoriert, ist der Grund, warum Leute bei 0:08 gehen.",
+  "Eine Idee. Ein Hook mit zwei Versprechen hält keins.",
+  "Konkret schlägt groß. 'Von 400 auf 20.000 Abos in sieben Monaten' schlägt 'riesiges Wachstum'.",
+  "Wenn du etwas zeigen willst, zeig es innerhalb von 20 Sekunden.",
+  "Fang nie damit an, wer du bist. Den Abo-Aufruf hast du dir noch nicht verdient."
+ ],
+ "hooks": [
+  {
+   "id": "the-statistic",
+   "name": "Die Statistik",
+   "shape": "Eine Zahl, die der Zuschauer nicht kannte, nüchtern gesagt, dann die Folge.",
+   "example": "[X] % aller neuen Kanäle hören vor dem 30. Video auf. Das hier machen die anderen anders.",
+   "fails_when": "Stirbt, wenn die Zahl vage oder nicht belegbar ist. Nenne die Quelle laut.",
+   "match": ["\\b\\d+([.,]\\d+)?\\s?(%|prozent)", "\\b\\d+ (von|aus) \\d+\\b", "\\b\\d{1,3}(\\.\\d{3})+\\b"]
+  },
+  {
+   "id": "someone-elses-result",
+   "name": "Fremdes Ergebnis",
+   "shape": "Das Ergebnis einer benannten Person, dann der Mechanismus dahinter.",
+   "example": "Dieser Kanal ist mit einem einzigen Format von [X] auf [Y] Abos gewachsen. Ich hab's auseinandergenommen.",
+   "fails_when": "Zahl nicht erfinden. Kannst du den Kanal nicht nennen, nimm eine andere Formel.",
+   "match": ["\\bdiese[rs]? (kanal|typ|creator|creatorin|account)\\b", "\\bvon .* auf .* (abos|abonnenten|aufrufe|views)\\b", "\\bin (einer|einem|zwei|drei|\\d+) (woche|wochen|monat|monaten|jahr|jahren)\\b"]
+  },
+  {
+   "id": "the-mistake",
+   "name": "Der Fehler",
+   "shape": "Benenne den Fehler, den der Zuschauer wahrscheinlich gerade macht.",
+   "example": "Deine ersten 30 Sekunden sind der Grund, warum niemand deine Videos zu Ende schaut. Nicht das Thema.",
+   "fails_when": "Klappt nur, wenn der Fehler verbreitet ist und der Zuschauer ihn in einer Sekunde prüfen kann.",
+   "match": ["\\bdu (machst|tust) (wahrscheinlich |immer noch |gerade )?", "\\bder (fehler|grund),? (den|warum) (alle|die meisten|niemand)\\b", "\\bhör auf\\b"]
+  },
+  {
+   "id": "contrarian-flip",
+   "name": "Die Gegenthese",
+   "shape": "Nenne den gängigen Rat, dann widersprich ihm.",
+   "example": "Alle sagen, poste täglich. Ich habe ein Jahr lang einmal pro Woche gepostet, und das ist passiert.",
+   "fails_when": "Braucht in den nächsten 15 Sekunden einen Beleg, sonst wirkt es wie Widerspruch um des Widerspruchs willen.",
+   "match": ["\\balle (sagen|denken|erzählen)\\b", "\\bist (eigentlich |komplett )?falsch\\b", "\\bniemand (sagt|redet|spricht)\\b"]
+  },
+  {
+   "id": "the-reveal",
+   "name": "Die Enthüllung",
+   "shape": "Versprich, etwas Bestimmtes zu zeigen, dann zeig es.",
+   "example": "Ich zeige dir den genauen Prompt, mit dem ich jedes Skript schreibe. Hier ist er.",
+   "fails_when": "Du musst es wirklich zeigen, und zwar früh. Eine Enthüllung bei 8:00 ist ein Absturz bei 1:00.",
+   "match": ["\\bich zeig(e)? dir\\b", "\\bhier (ist|sind) (der|die|das|genau)\\b", "\\bim bild\\b"]
+  },
+  {
+   "id": "the-superlative",
+   "name": "Der Superlativ",
+   "shape": "Das eine beste, schlechteste oder schnellste einer Kategorie.",
+   "example": "Das ist der schnellste Weg, ein Skript zu schreiben, den ich nach zehn Versuchen gefunden habe.",
+   "fails_when": "Superlative sind billig. Verdien ihn dir, indem du sagst, was er geschlagen hat.",
+   "match": ["\\b(der|die|das) (beste|schlechteste|schnellste|einfachste|einzige)\\b", "\\bnummer eins\\b"]
+  },
+  {
+   "id": "the-clock",
+   "name": "Die Uhr",
+   "shape": "Begrenze die Auflösung zeitlich.",
+   "example": "In den nächsten 60 Sekunden richtest du das komplett ein.",
+   "fails_when": "Die Zeitangabe muss stimmen. Überziehst du sie, glaubt dir beim nächsten Video keiner den Hook.",
+   "match": ["\\bin (den nächsten )?\\d+ (sekunden|minuten|stunden)\\b", "\\bam ende (dieses|von diesem) videos?\\b", "\\bunter \\d+\\b"]
+  },
+  {
+   "id": "i-tried-it",
+   "name": "Selbstversuch",
+   "shape": "Ein Experiment in Ich-Form mit klar genanntem Einsatz.",
+   "example": "Ich habe 30 Tage lang jedes Video von Claude schreiben lassen, damit du es nicht musst.",
+   "fails_when": "Braucht einen echten Einsatz - Zeit, Geld, Risiko -, sonst steht nichts auf dem Spiel.",
+   "match": ["\\bich habe? (\\w+ )?(getestet|ausprobiert|versucht|gelassen|investiert)\\b", "\\b\\d+ (tage|wochen|monate) lang\\b", "\\bdamit du (es )?nicht (musst|mehr musst)\\b"]
+  },
+  {
+   "id": "the-question",
+   "name": "Die Frage",
+   "shape": "Stell genau die Frage, die der Zuschauer in die Suche getippt hat.",
+   "example": "Warum verlieren deine Videos die Leute bei Sekunde 30?",
+   "fails_when": "Es muss die Frage des Zuschauers sein, nicht deine. Hol sie aus deinen Kommentaren.",
+   "match": ["^(warum|wieso|weshalb|wie|was|wann|soll|sollte|kann|lohnt|ist|bringt)\\b", "\\?\\s*$"]
+  },
+  {
+   "id": "the-before-after",
+   "name": "Vorher / Nachher",
+   "shape": "Zwei Zustände, ein Schnitt dazwischen.",
+   "example": "So sah mein Thumbnail vorher aus. Und so sieht es nach fünf Minuten mit diesem Skill aus.",
+   "fails_when": "Klappt nur mit Bild. Nicht für reine Talking-Head-Videos verwenden.",
+   "match": ["\\bvorher\\b.*\\bnachher\\b", "\\bdas war\\b.*\\bdas ist\\b", "\\bfrüher\\b"]
+  },
+  {
+   "id": "the-teardown",
+   "name": "Die Zerlegung",
+   "shape": "Nimm etwas Echtes öffentlich auseinander.",
+   "example": "Ich habe die 50 erfolgreichsten Videos meiner Nische analysiert. Drei Muster tauchen immer wieder auf.",
+   "fails_when": "Sag, was und wie viel du dir angeschaut hast. Eine Zerlegung von einem Beispiel ist eine Anekdote.",
+   "match": ["\\bauseinandergenommen\\b", "\\bzerleg(t|e|en)\\b", "\\banalysiert\\b", "\\bich habe? mir .* angeschaut\\b"]
+  },
+  {
+   "id": "the-stack",
+   "name": "Die Kombination",
+   "shape": "Zwei benannte Werkzeuge, zusammen ein Ergebnis.",
+   "example": "Claude plus Whisper: Aus einer Rohaufnahme wird in zehn Minuten eine Schnittliste.",
+   "fails_when": "Beide Werkzeuge müssen benennbar sein, und das Ergebnis muss beide brauchen.",
+   "match": ["\\b\\w+ (plus|\\+|und) \\w+:", "\\bkombinier(t|e|en)\\b", "\\bzusammen\\b"]
+  },
+  {
+   "id": "the-warning",
+   "name": "Die Warnung",
+   "shape": "Ein Preis, den der Zuschauer gleich zahlen wird.",
+   "example": "Lade dein nächstes Video nicht hoch, bevor du diese drei Dinge geprüft hast.",
+   "fails_when": "Ist der Preis klein, ist der Hook eine Lüge. Spar sie dir auf.",
+   "match": ["\\b(lade|poste|veröffentliche|starte) (dein|deine|nichts|nicht)\\b.*\\bnicht\\b", "\\bbevor du\\b", "\\bmach (das )?nicht\\b", "\\bachtung\\b"]
+  },
+  {
+   "id": "the-list",
+   "name": "Die Liste",
+   "shape": "Eine gezählte Menge, die Zahl im ersten Satz.",
+   "example": "Fünf Claude-Skills, die deinen YouTube-Kanal mitführen. Nummer drei spart mir jede Woche Stunden.",
+   "fails_when": "Die Zahl muss exakt stimmen, und jeder Punkt muss etwas anderes sein.",
+   "match": ["^\\d+ \\w+", "^(drei|vier|fünf|sechs|sieben|acht|neun|zehn|elf|zwölf) \\w+", "\\b(hier sind|das sind) \\d+\\b"]
+  },
+  {
+   "id": "the-receipt",
+   "name": "Der Beleg",
+   "shape": "Zeig zuerst das Ergebnis, erklär danach.",
+   "example": "Das ist meine Retention-Kurve von letzter Woche. Siehst du den Knick bei 0:40?",
+   "fails_when": "Braucht einen echten Screenshot. Ein beschriebener Beleg ist kein Beleg.",
+   "match": ["\\bdas ist (der|die|das|mein|meine)\\b", "\\bscreenshot\\b", "\\bbeweis\\b", "\\bbeleg\\b"]
+  },
+  {
+   "id": "the-insider",
+   "name": "Der Insider",
+   "shape": "Wissen von innerhalb eines Systems.",
+   "example": "In YouTube Studio gibt es einen Export, den fast niemand öffnet. Er zeigt dir die Sekunde, in der die Leute gehen.",
+   "fails_when": "Behaupte keinen Insider-Zugang, den du nicht hast.",
+   "match": ["\\b(niemand|fast niemand|kaum jemand|die meisten) (kennt|kennen|öffnet|öffnen|nutzt|nutzen)\\b", "\\bversteckt\\b", "\\bgeheim\\b"]
+  },
+  {
+   "id": "the-impossible",
+   "name": "Die steile These",
+   "shape": "Sag etwas, das unglaubwürdig klingt, dann beweis es.",
+   "example": "Dieser Kanal zeigt nie ein Gesicht und schreibt kein einziges Skript selbst.",
+   "fails_when": "Der Beweis muss innerhalb von 20 Sekunden beginnen, sonst wirkt es wie Clickbait.",
+   "match": ["\\bohne\\b", "\\bnie\\b", "\\bmit (einem|einer) einzigen\\b", "\\bnull\\b"]
+  },
+  {
+   "id": "the-comparison",
+   "name": "Der Vergleich",
+   "shape": "Zwei benannte Optionen, ein Gewinner.",
+   "example": "ChatGPT gegen Claude für YouTube-Skripte. Nur einer hat meine Stimme getroffen.",
+   "fails_when": "Sprich den Verlierer laut aus. Ein Vergleich ohne Verlierer ist Werbung.",
+   "match": ["\\bvs\\.?\\b", "\\bgegen\\b", "\\bwelche[rs]? (ist besser|gewinnt)\\b", "\\bauf (zwei|drei) arten\\b"]
+  },
+  {
+   "id": "the-origin",
+   "name": "Die Herkunft",
+   "shape": "Woher ein Ergebnis wirklich kam.",
+   "example": "Jedes meiner Videos fängt mit derselben Notiz an. So sieht sie aus.",
+   "fails_when": "Klappt einmal pro Kanal. Es ist eine Enthüllung über dich, und davon hast du nur eine.",
+   "match": ["\\bjedes (video|meiner videos) .* (fängt|beginnt)\\b", "\\bangefangen hat (alles|es)\\b", "\\bder (wahre |echte )?grund\\b"]
+  },
+  {
+   "id": "the-deadline",
+   "name": "Die Deadline",
+   "shape": "Zu einem Datum ändert sich etwas.",
+   "example": "Ab nächsten Monat zeigt YouTube dir diese Zahl nicht mehr. Sichere sie dir jetzt.",
+   "fails_when": "Nur mit einem echten, prüfbaren Datum. Mit keiner Formel verspielst du Vertrauen schneller.",
+   "match": ["\\b(diese|nächste|diesen|nächsten) (woche|monat|jahr)\\b", "\\bändert sich\\b", "\\bnicht mehr\\b", "\\bab (dem|jetzt|sofort)\\b"]
+  },
+  {
+   "id": "the-direct-address",
+   "name": "Die direkte Ansprache",
+   "shape": "Nenne in den ersten sechs Wörtern genau den Zuschauer.",
+   "example": "Wenn du unter 1.000 Abos hast und seit Monaten feststeckst, ist das hier für dich.",
+   "fails_when": "Eng schlägt breit. 'Wenn du Videos machst' spricht niemanden an.",
+   "match": ["^wenn du\\b", "\\bfür (alle|jeden|leute),? die\\b", "\\bgenau du\\b"]
+  }
+ ]
+}
