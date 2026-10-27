@@ -14,7 +14,7 @@ Anmeldung, kein API-Key, nichts zu verbinden.
 In Claude Code einfügen:
 
 ```
-https://github.com/DEIN-NAME/youtube-agent-de
+https://github.com/FacelessKing-GIT/youtube-agent-de
 
 Installiere diesen Skill und prüfe dann, ob /yt-script funktioniert.
 ```
@@ -22,7 +22,7 @@ Installiere diesen Skill und prüfe dann, ob /yt-script funktioniert.
 Oder selbst im Terminal:
 
 ```bash
-git clone https://github.com/DEIN-NAME/youtube-agent-de.git youtube-agent-de
+git clone https://github.com/FacelessKing-GIT/youtube-agent-de.git youtube-agent-de
 cp -r youtube-agent-de/skills/yt-* ~/.claude/skills/
 ```
 
